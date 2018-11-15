@@ -2,7 +2,11 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-
+const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: __dirname + '/src/index.html',
+  filename: 'index.html',
+  inject: 'body'
+});
 
 const sassLoaderConfig = {
   fallback: 'style-loader',
@@ -11,9 +15,13 @@ const sassLoaderConfig = {
 
 module.exports = {
   entry: [
-   
+    'babel-polyfill',
+    './src/index.js'
   ],
-  
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'app.bundle.js'
+  },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', query: { presets: ['env'] }, exclude: /node_modules/ },

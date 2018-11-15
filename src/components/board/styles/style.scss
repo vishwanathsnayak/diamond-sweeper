@@ -1,0 +1,18 @@
+@import './style.large';
+
+.wrapper {
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: repeat(8, 12.5%);
+  grid-template-rows: repeat(8, 12.5%);  
+}
+
+.box {
+  margin: 5px;
+  border: 1px solid black;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
